@@ -1,7 +1,7 @@
 /**
  * Created by YEFY on 2017/7/31.
  */
-    //class
+    //class 验证对象
 var Validator = function () {
     this.cache=[];
 };
@@ -22,6 +22,7 @@ Validator.prototype.start = function () {
         }
     }
 };
+//策略对象
 var strategies = {
     isNoEmpty: function (value, errorMsg) {
         if (value === "") {

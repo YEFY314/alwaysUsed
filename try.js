@@ -70,7 +70,7 @@ for(var h=0; h<m; h++){
  * @param {string} s
  * @return {number}
  */
-var lengthOfLongestSubstring = function(s) {
+/*var lengthOfLongestSubstring = function(s) {
     if(s=="") return 0;
     var arr = s.split("");
     if(arr.length==1) return 1;
@@ -124,4 +124,141 @@ function func(s) {
 }
 console.time("yefy1");
 console.log(func("oueqeeswxcrphezvtctphjikywuzptlfprxuwqstu"));
-console.timeEnd("yefy1");
+console.timeEnd("yefy1");*/
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} l1
+ * @param {ListNode} l2
+ * @return {ListNode}
+ */
+/*var addTwoNumbers = function(l1, l2) {
+    var l3 = new ListNode(0);
+    var outcome = l3;
+    var flag=0;
+    while(l1!==null||l2!==null||flag){
+        if(l1!==null){
+            l3.val +=l1.val;
+        }
+        if(l2!==null){
+            l3.val+=l2.val;
+        }
+        var temp = l3.val+flag;
+        l3.val = temp%10;
+        if(temp/10>=1){
+            flag = 1;
+        }else{
+            flag = 0;
+        }
+        if((l1!=null&&l1.next!==null)||(l2!=null&&l2.next!==null)||flag){
+            l3.next = new ListNode(0);
+            l3 = l3.next;
+        }
+        if((l1!=null)&&l1.next) l1 = l1.next;
+        else l1 = null;
+        if((l2!=null)&&l2.next) l2 = l2.next;
+        else l2 = null;
+
+    }
+    return outcome;
+};
+ function ListNode(a){
+     this.val = a;
+     this.next = null;
+ }
+var l1 = new ListNode(1);
+l1.next = new ListNode(8);
+//l1.next.next = new ListNode(3);
+var l2 = new ListNode(0);
+//l2.next = new ListNode(6);
+//l2.next.next = new ListNode(4);
+
+
+console.time("yefy");
+var l3 =temp1= addTwoNumbers(l1, l2);
+do{
+    console.log(l3.val);
+    temp1 = l3;
+    l3 = l3.next;
+}while(temp1.next);
+console.timeEnd("yefy");*/
+
+/*
+var _ = require("./underscore");
+var fibonacci = _.memoize(function(n){
+    return n<2?n:arguments.callee(n-1)+arguments.callee(n-2);
+});
+console.time("yefy");
+console.log(fibonacci(40));
+console.timeEnd("yefy");
+console.time("yefy2");
+console.log(fibonacci(40));
+console.timeEnd("yefy2");
+
+var fibonacci1 =function(n) {
+    return n <2? n : arguments.callee(n -1) + arguments.callee(n -2);
+};
+console.time('yefy1');
+console.log(fibonacci1(40));
+console.timeEnd('yefy1');*/
+
+
+/*
+var square = function(num){
+    var key = JSON.stringify(Array.prototype.slice.call(num));
+
+    if(!square.cache[key]){
+        var result={};
+        //Computation
+        console.log("Computing value...");
+        result = num*num;
+        square.cache[key] = result;
+    }
+
+    return square.cache[key];
+}
+
+square.cache = {};
+
+console.log(square([3]));*/
+/*var max = Math.max.apply(null, [1, 2, 3, 4]);
+console.log(max);
+var obj = {
+    length: 3,
+    0: "first",
+    1: "second",
+    2: "thred"
+};
+var result = Array.prototype.slice.call([1,2,3]);
+console.log(result);
+var arr = ['1', '2', '3'];
+var result1 = arr.slice();
+arr[2] = '4';
+console.log(result1);
+console.log(arr);*/
+
+function findMin(s){
+    var arr = s.split('');
+    var outcome = 0;
+    for(var i=0,l=arr.length;i<l-1;){
+        var same = 1;
+        inner:
+        for(var j=i+1;j<l;j++){
+            if(arr[i]==arr[j]){
+                same++;
+            }else{
+                break inner;
+            }
+        }
+        i=j;
+        outcome+= Math.floor(same/2);
+    }
+    return outcome;
+}
+var outcome = findMin('rrrrrr');
+console.log(outcome);
